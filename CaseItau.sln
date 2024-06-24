@@ -9,11 +9,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{87F31CE0-E0F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{03C357A6-4EE3-434F-A810-E66042AF2705}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaseItau.Application", "CaseItau.Application\CaseItau.Application.csproj", "{30A8A015-C9AB-4576-ACA9-32C9FE3AB6E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CaseItau.Application", "CaseItau.Application\CaseItau.Application.csproj", "{30A8A015-C9AB-4576-ACA9-32C9FE3AB6E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaseItau.Domain", "CaseItau.Domain\CaseItau.Domain.csproj", "{CD36F3C9-B2B6-46DE-891C-D6EEFE34C0BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CaseItau.Domain", "CaseItau.Domain\CaseItau.Domain.csproj", "{CD36F3C9-B2B6-46DE-891C-D6EEFE34C0BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaseItau.Infrastructure", "CaseItau.Infrastructure\CaseItau.Infrastructure.csproj", "{D805C8EA-199A-4774-9098-3ABC89D4CFF0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CaseItau.Infrastructure", "CaseItau.Infrastructure\CaseItau.Infrastructure.csproj", "{D805C8EA-199A-4774-9098-3ABC89D4CFF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaseItau.Application.UnitTests", "CaseItau.Application.UnitTests\CaseItau.Application.UnitTests.csproj", "{1C92543E-1AEA-43B3-A363-6EEF983FC4D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +39,10 @@ Global
 		{D805C8EA-199A-4774-9098-3ABC89D4CFF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D805C8EA-199A-4774-9098-3ABC89D4CFF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D805C8EA-199A-4774-9098-3ABC89D4CFF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C92543E-1AEA-43B3-A363-6EEF983FC4D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C92543E-1AEA-43B3-A363-6EEF983FC4D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C92543E-1AEA-43B3-A363-6EEF983FC4D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C92543E-1AEA-43B3-A363-6EEF983FC4D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{30A8A015-C9AB-4576-ACA9-32C9FE3AB6E1} = {87F31CE0-E0F5-4BCE-8477-023B7EF5D853}
 		{CD36F3C9-B2B6-46DE-891C-D6EEFE34C0BB} = {87F31CE0-E0F5-4BCE-8477-023B7EF5D853}
 		{D805C8EA-199A-4774-9098-3ABC89D4CFF0} = {87F31CE0-E0F5-4BCE-8477-023B7EF5D853}
+		{1C92543E-1AEA-43B3-A363-6EEF983FC4D7} = {03C357A6-4EE3-434F-A810-E66042AF2705}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {690DD11F-4A91-43EE-89B0-A5586019C18B}
