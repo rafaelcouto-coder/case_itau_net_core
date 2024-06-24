@@ -5,7 +5,7 @@ using CaseItau.Domain.Repositories;
 
 namespace CaseItau.Application.Fundos.DeleteFundos;
 
-internal sealed class DeleteFundosCommandHandler(
+public sealed class DeleteFundosCommandHandler(
     IFundosRepository fundosRepository,
     IUnitOfWork unitOfWork) : ICommandHandler<DeleteFundosCommand, string>
 {

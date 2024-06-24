@@ -4,9 +4,9 @@ using CaseItau.Domain.Abstractions;
 using CaseItau.Domain.Fundos;
 using CaseItau.Domain.Repositories;
 
-namespace CaseItau.Application.Fundos.UpdatePatrimonioCommand;
+namespace CaseItau.Application.Fundos.UpdatePatrimonio;
 
-internal sealed class UpdatePatrimonioCommandHandler : ICommandHandler<UpdatePatrimonioCommand, string>
+public sealed class UpdatePatrimonioCommandHandler : ICommandHandler<UpdatePatrimonioCommand, string>
 {
     private readonly IFundosRepository _fundosRepository;
     private readonly IUnitOfWork _unitOfWork;

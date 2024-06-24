@@ -5,7 +5,7 @@ using CaseItau.Domain.Repositories;
 
 namespace CaseItau.Application.Fundos.CreateFundos;
 
-internal sealed class CreateFundosCommandHandler(
+public sealed class CreateFundosCommandHandler(
     IFundosRepository fundosRepository,
     IUnitOfWork unitOfWork) : ICommandHandler<CreateFundosCommand, string>
 {
@@ -19,14 +19,14 @@ internal sealed class CreateFundosCommandHandler(
             return Result.Failure<string>(FundoErrors.CodeAlreadyExists);
 
         var fundoWithRequestedCnpj = await _fundosRepository.GetByCnpjAsync(request.Cnpj, ct);
-        if (CnpjAlreadyExists(fundoWithRequestedCnpj, request.Codigo))
+        if (CnpjAlreadyExists(fundoWithRequestedCnpj))
             return Result.Failure<string>(FundoErrors.CnpjAlreadyExists);
 
         var fundo = new Fundo(
             request.Codigo,
             request.Nome,
             request.Cnpj,
-            request.TipoFundo,
+            (int)request.TipoFundo,
             request.Patrimonio);
 
         _fundosRepository.Add(fundo);
@@ -41,8 +41,8 @@ internal sealed class CreateFundosCommandHandler(
         return fundo is not null;
     }
 
-    private static bool CnpjAlreadyExists(Fundo? fundo, string codigo)
+    private static bool CnpjAlreadyExists(Fundo? fundo)
     {
-        return fundo is not null && fundo.Codigo != codigo;
+        return fundo is not null;
     }
 }

@@ -5,7 +5,7 @@ using CaseItau.Domain.Repositories;
 
 namespace CaseItau.Application.Fundos.GetAllFundos;
 
-internal sealed class GetAllFundosQueryHandler(IFundosRepository fundosRepository) : IQueryHandler<GetAllFundosQuery, List<FundosResponse>>
+public sealed class GetAllFundosQueryHandler(IFundosRepository fundosRepository) : IQueryHandler<GetAllFundosQuery, List<FundosResponse>>
 {
     private readonly IFundosRepository _fundosRepository = fundosRepository;
 

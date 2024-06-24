@@ -4,7 +4,7 @@ using CaseItau.Application.Fundos.DeleteFundos;
 using CaseItau.Application.Fundos.EditFundos;
 using CaseItau.Application.Fundos.GetAllFundos;
 using CaseItau.Application.Fundos.GetFundos;
-using CaseItau.Application.Fundos.UpdatePatrimonioCommand;
+using CaseItau.Application.Fundos.UpdatePatrimonio;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading;

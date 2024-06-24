@@ -5,7 +5,7 @@ using CaseItau.Domain.Repositories;
 
 namespace CaseItau.Application.Fundos.EditFundos;
 
-internal sealed class EditFundosCommandHandler(
+public sealed class EditFundosCommandHandler(
     IFundosRepository fundosRepository,
     IUnitOfWork unitOfWork) : ICommandHandler<EditFundosCommand, string>
 {
@@ -22,7 +22,7 @@ internal sealed class EditFundosCommandHandler(
         if (CnpjAlreadyExists(fundoWithRequestedCnpj, request.Codigo))
             return Result.Failure<string>(FundoErrors.CnpjAlreadyExists);
 
-        fundoWithRequestedCode!.UpdateFundo(request.Nome, request.Cnpj, request.TipoFundo);
+        fundoWithRequestedCode!.UpdateFundo(request.Nome, request.Cnpj, (int)request.TipoFundo);
 
         _fundosRepository.Update(fundoWithRequestedCode);
 

@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using CaseItau.Application.Behaviors;
+using FluentValidation;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace CaseItau.Application;
 
@@ -9,7 +11,11 @@ public static class DependencyInjection
         services.AddMediatR(m =>
         {
             m.RegisterServicesFromAssembly(typeof(DependencyInjection).Assembly);
+
+            m.AddOpenBehavior(typeof(ValidationBehavior<,>));
         });
+
+        services.AddValidatorsFromAssembly(typeof(DependencyInjection).Assembly);
 
         return services;
     }
