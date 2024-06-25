@@ -19,5 +19,13 @@ public static class FundoErrors
     public static Error NegativePatrimonyNotAllowed = new(
         "Fundo.NegativePatrimonyNotAllowed",
         "Negative patrimony value is not allowed");
+
+    public static Error Error = new(
+        "Fundo.NegativePatrimonyNotAllowed",
+        "Negative patrimony value is not allowed");
+
+    public static Error UnexpectedResponse = new(
+        "Fundo.UnexpectedResponse",
+        "The server responded with an unexpected status code");
 }
 
