@@ -23,12 +23,6 @@ public class FundosModel(IFundosClientService fundosClientService) : PageModel
 
     public async Task<IActionResult> OnPostAsync(CancellationToken cancellationToken)
     {
-        //if (!ModelState.IsValid)
-        //{
-        //    Fundos = await _fundosClientService.SearchAllFundosAsync(cancellationToken);
-        //    return Page();
-        //}
-
         var createResult = await _fundosClientService.CreateFundosAsync(FundoViewModel, cancellationToken);
 
         if (createResult.IsSuccess)

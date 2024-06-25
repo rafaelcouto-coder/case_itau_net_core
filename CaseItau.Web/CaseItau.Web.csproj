@@ -12,8 +12,4 @@
     <ProjectReference Include="..\CaseItau.Domain\CaseItau.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\Fundos\" />
-  </ItemGroup>
-
 </Project>

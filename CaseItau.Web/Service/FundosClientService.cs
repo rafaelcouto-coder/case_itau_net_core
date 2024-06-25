@@ -30,31 +30,4 @@ public sealed class FundosClientService(HttpClient httpClient) : IFundosClientSe
 
         return Result.Failure<string>(FundoErrors.UnexpectedResponse);
     }
-
-    public async Task<Result> EditFundosAsync(string codigo, EditFundosRequest request, CancellationToken ct)
-    {
-        var response = await _httpClient.PutAsJsonAsync($"fundo/{codigo}", request, ct);
-        if (response.IsSuccessStatusCode)
-            return Result.Success(response.StatusCode);
-
-        return Result.Failure<string>(FundoErrors.UnexpectedResponse);
-    }
-
-    public async Task<Result> UpdatePatrimonioAsync(string codigo, UpdatePatrimonioRequest request, CancellationToken ct)
-    {
-        var response = await _httpClient.PutAsJsonAsync($"fundo/{codigo}/patrimonio", request, ct);
-        if (response.IsSuccessStatusCode)
-            return Result.Success(response.StatusCode);
-
-        return Result.Failure<string>(FundoErrors.UnexpectedResponse);
-    }
-
-    public async Task<Result> DeleteFundosAsync(string codigo, CancellationToken ct)
-    {
-        var response = await _httpClient.DeleteAsync($"fundo/{codigo}", ct);
-        if (response.IsSuccessStatusCode)
-            return Result.Success(response.StatusCode);
-
-        return Result.Failure<string>(FundoErrors.UnexpectedResponse);
-    }
 }

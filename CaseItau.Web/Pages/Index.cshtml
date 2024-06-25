@@ -10,7 +10,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <form method="post" class="card card-body">
-                @* <input type="hidden" asp-for="FundoViewModel.Codigo" /> *@
+                <h4>Criar Fundo</h4>
                 <div class="mb-3">
                     <label asp-for="FundoViewModel.Codigo" class="form-label">Código</label>
                     <input asp-for="FundoViewModel.Codigo" class="form-control" />
@@ -45,12 +45,13 @@
     <div class="row justify-content-center mt-5">
         <div class="col-md-10">
             <table class="table table-striped">
+            <h4>Lista de Fundos</h4>
                 <thead>
                     <tr>
                         <th>Código</th>
                         <th>Nome</th>
                         <th>Cnpj</th>
-                        <th>TipoFundo</th>
+                        <th>Tipo de Fundo</th>
                         <th>Patrimônio</th>
                         <th>Ações</th>
                     </tr>
@@ -66,7 +67,9 @@
                             <td>@fundo.Patrimonio</td>
                             <td>
                                 
-                                <button asp-page-handler="GetById" asp-route-id="@fundo.Codigo" class="btn btn-secondary btn-sm mb-2">Detalhes</button>
+                                <button asp-page-handler="GetById" asp-route-id="@fundo.Codigo" class="btn btn-secondary btn-sm mb-2">
+                                    Detalhes
+                                </button>
                                 <button asp-page-handler="Edit" asp-route-id="@fundo.Codigo" class="btn btn-secondary btn-sm me-3 mb-2">Editar</button>
                                 <button asp-page-handler="UpdatePatrimonio" asp-route-id="@fundo.Codigo" class="btn btn-secondary btn-sm me-3 mb-2">Atualizar Patrimônio</button>
                                 <button asp-page-handler="Delete" asp-route-id="@fundo.Codigo" class="btn btn-secondary btn-sm me-3 mb-2">Deletar</button>
