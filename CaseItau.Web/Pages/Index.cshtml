@@ -1,5 +1,6 @@
 ﻿@page
 @using CaseItau.Domain.Fundos.Enums
+@using CaseItau.Web.Extensions
 @model IndexModel
 
 @{
@@ -31,19 +32,19 @@
         @foreach (var item in Model.Fundos) {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Codigo)
+                    @item.Codigo
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Nome)
+                    @item.Nome
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Cnpj)
+                    @item.Cnpj.FormatCnpj()
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.TipoFundo.Nome)
+                    @item.TipoFundo.Nome
                 </td>
                 <td>
-                    @(item.Patrimonio)$
+                    @item.Patrimonio.FormatPatrimony()
                 </td>
                 <td class="white-space:nowrap">
                     <a class="btn btn-info btn-sm" asp-page="/Fundo/Detail" asp-route-id="@item.Codigo">Detalhes</a> 
