@@ -1,0 +1,49 @@
+﻿@page
+@model CaseItau.Web.Pages.Fundo.DetailModel
+
+@{
+    ViewData["Title"] = "Fund Details";
+}
+
+<h1>Detalhes do fundo</h1>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FundosResponse.Codigo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FundosResponse.Codigo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FundosResponse.Nome)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FundosResponse.Nome)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FundosResponse.Cnpj)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FundosResponse.Cnpj)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FundosResponse.TipoFundo.Nome)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FundosResponse.TipoFundo.Nome)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FundosResponse.Patrimonio)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FundosResponse.Patrimonio)
+        </dd>
+    </dl>
+</div>
+
+
+<div>
+    <a class="btn btn-outline-primary" asp-page="../Index">Voltar</a>
+    <a class="btn btn-outline-primary" asp-page="./Edit" asp-route-id="@Model.FundosResponse.Codigo">Editar</a>
+</div>

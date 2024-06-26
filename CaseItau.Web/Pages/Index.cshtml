@@ -1,83 +1,56 @@
 ﻿@page
 @using CaseItau.Domain.Fundos.Enums
-@model CaseItau.Web.Pages.FundosModel
+@model IndexModel
 
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Index";
 }
 
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <form method="post" class="card card-body">
-                <h4>Criar Fundo</h4>
-                <div class="mb-3">
-                    <label asp-for="FundoViewModel.Codigo" class="form-label">Código</label>
-                    <input asp-for="FundoViewModel.Codigo" class="form-control" />
-                </div>
-                <div class="mb-3">
-                    <label asp-for="FundoViewModel.Nome" class="form-label">Nome</label>
-                    <input asp-for="FundoViewModel.Nome" class="form-control" />
-                </div>
-                <div class="mb-3">
-                    <label asp-for="FundoViewModel.Cnpj" class="form-label">CNPJ</label>
-                    <input asp-for="FundoViewModel.Cnpj" class="form-control" />
-                </div>
-                <div class="mb-3">
-                    <label asp-for="FundoViewModel.TipoFundo" class="form-label">Tipo de Fundo</label>
-                    <select asp-for="FundoViewModel.TipoFundo" class="form-select">
-                        <option value="">Selecione</option>
-                        @foreach (var tipo in Enum.GetValues(typeof(TipoFundoEnum)))
-                        {
-                            <option value="@tipo">@tipo</option>
-                        }
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label asp-for="FundoViewModel.Patrimonio" class="form-label">Patrimônio</label>
-                    <input asp-for="FundoViewModel.Patrimonio" class="form-control" />
-                </div>
-                <button type="submit" asp-page-handler="Save" class="btn btn-primary">Salvar</button>
-            </form>
-        </div>
-    </div>
+<h2 class="card-text md-5">Lista de Fundos</h2>
 
-    <div class="row justify-content-center mt-5">
-        <div class="col-md-10">
-            <table class="table table-striped">
-            <h4>Lista de Fundos</h4>
-                <thead>
-                    <tr>
-                        <th>Código</th>
-                        <th>Nome</th>
-                        <th>Cnpj</th>
-                        <th>Tipo de Fundo</th>
-                        <th>Patrimônio</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var fundo in Model.Fundos)
-                    {
-                        <tr>
-                            <td>@fundo.Codigo</td>
-                            <td>@fundo.Nome</td>
-                            <td>@fundo.Cnpj</td>
-                            <td>@fundo.TipoFundo.Nome</td>
-                            <td>@fundo.Patrimonio</td>
-                            <td>
-                                
-                                <button asp-page-handler="GetById" asp-route-id="@fundo.Codigo" class="btn btn-secondary btn-sm mb-2">
-                                    Detalhes
-                                </button>
-                                <button asp-page-handler="Edit" asp-route-id="@fundo.Codigo" class="btn btn-secondary btn-sm me-3 mb-2">Editar</button>
-                                <button asp-page-handler="UpdatePatrimonio" asp-route-id="@fundo.Codigo" class="btn btn-secondary btn-sm me-3 mb-2">Atualizar Patrimônio</button>
-                                <button asp-page-handler="Delete" asp-route-id="@fundo.Codigo" class="btn btn-secondary btn-sm me-3 mb-2">Deletar</button>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
+<div class="row mb-5">
+    <div class="col">
+        <a class="btn btn-primary" href="/Fundo/Create">
+            Novo Fundo
+        </a>
     </div>
 </div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Nome</th>
+            <th>Cnpj</th>
+            <th>Tipo de Fundo</th>
+            <th>Patrimônio</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Fundos) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Codigo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cnpj)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipoFundo.Nome)
+                </td>
+                <td>
+                    @(item.Patrimonio)$
+                </td>
+                <td class="white-space:nowrap">
+                    <a class="btn btn-info btn-sm" asp-page="/Fundo/Detail" asp-route-id="@item.Codigo">Detalhes</a> 
+                    <a class="btn btn-primary btn-sm" asp-page="/Fundo/Edit" asp-route-id="@item.Codigo">Editar</a> 
+                    <a class="btn btn-danger btn-sm" asp-page="/Fundo/Delete" asp-route-id="@item.Codigo">Deletar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

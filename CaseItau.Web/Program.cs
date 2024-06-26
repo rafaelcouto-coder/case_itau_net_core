@@ -6,7 +6,7 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddHttpClient<IFundosClientService, FundosClientService>(client =>
 {
-    client.BaseAddress = new Uri("https://localhost:44378/api/"); // Ajuste para a URL da sua API
+    client.BaseAddress = new Uri("https://localhost:44378/api/");
 });
 
 var app = builder.Build();

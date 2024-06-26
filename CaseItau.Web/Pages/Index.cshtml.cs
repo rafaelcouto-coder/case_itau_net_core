@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CaseItau.Web.Pages;
 
-public class FundosModel(IFundosClientService fundosClientService) : PageModel
+public class IndexModel(IFundosClientService fundosClientService) : PageModel
 {
     private readonly IFundosClientService _fundosClientService = fundosClientService;
 
@@ -15,9 +15,12 @@ public class FundosModel(IFundosClientService fundosClientService) : PageModel
 
     public List<FundosResponse> Fundos { get; set; } = new List<FundosResponse>();
 
+    public string Search = "";
+
     public async Task<IActionResult> OnGetAsync()
     {
         Fundos = await _fundosClientService.SearchAllFundosAsync(CancellationToken.None);
+
         return Page();
     }
 
@@ -27,7 +30,7 @@ public class FundosModel(IFundosClientService fundosClientService) : PageModel
 
         if (createResult.IsSuccess)
         {
-            return RedirectToPage("./Index");
+            return RedirectToPage(".Fundo/Index");
         }
         else
         {

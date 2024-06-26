@@ -1,0 +1,32 @@
+﻿@page
+@using CaseItau.Domain.Fundos.Enums
+@model CaseItau.Web.Pages.Fundo.EditModel
+
+@{
+    ViewData["Title"] = "Edit Fundo";
+}
+
+<h1>Editar Fundo</h1>
+
+<form method="post">
+    <div class="mb-3">
+        <label for="Nome" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="Nome" asp-for="EditFundosRequest.Nome">
+    </div>
+    <div class="mb-3">
+        <label for="Cnpj" class="form-label">CNPJ</label>
+        <input type="text" maxlength="14" type="tel" class="form-control" id="Cnpj" asp-for="EditFundosRequest.Cnpj">
+    </div>
+    <div class="mb-3">
+        <label for="TipoFundo" class="form-label">Tipo de Fundo</label>
+        <select class="form-select" id="TipoFundo" asp-for="EditFundosRequest.TipoFundo">
+            @foreach (var tipo in Enum.GetValues<TipoFundoEnum>())
+            {
+                <option value="@tipo">@tipo</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a class="btn btn-outline-primary" asp-page="../Index">Voltar</a>
+</form>

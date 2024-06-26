@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CaseItau.Infrastructure", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CaseItau.Application.UnitTests", "CaseItau.Application.UnitTests\CaseItau.Application.UnitTests.csproj", "{1C92543E-1AEA-43B3-A363-6EEF983FC4D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaseItau.Web", "CaseItau.Web\CaseItau.Web.csproj", "{91732129-103E-4B25-8ACC-80FEB0369B64}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CaseItau.Web", "CaseItau.Web\CaseItau.Web.csproj", "{91732129-103E-4B25-8ACC-80FEB0369B64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
