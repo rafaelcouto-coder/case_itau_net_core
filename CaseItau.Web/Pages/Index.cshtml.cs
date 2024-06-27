@@ -1,6 +1,6 @@
 using CaseItau.API.Controllers.Fundos.Requests;
 using CaseItau.Application.Fundos.Shared;
-using CaseItau.Web.Service;
+using CaseItau.Web.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 

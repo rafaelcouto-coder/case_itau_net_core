@@ -48,3 +48,10 @@
     <a class="btn btn-outline-primary" asp-page="../Index">Voltar</a>
     <a class="btn btn-outline-primary" asp-page="./Edit" asp-route-id="@Model.FundosResponse.Codigo">Editar</a>
 </div>
+
+@if (Model.ErrorMessage != null)
+{
+    <div class="alert alert-danger mt-3" role="alert">
+        <strong>Error:</strong> @Model.ErrorMessage.Name - @Model.ErrorMessage.Code
+    </div>
+}

@@ -1,5 +1,6 @@
 using CaseItau.Application.Fundos.Shared;
-using CaseItau.Web.Service;
+using CaseItau.Web.Services;
+using CaseItau.Web.Services.Errors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -16,6 +17,8 @@ namespace CaseItau.Web.Pages.Fundo
 
         [BindProperty]
         public FundosResponse FundosResponse { get; set; }
+
+        public ApiError ErrorMessage { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id, CancellationToken cancellationToken)
         {

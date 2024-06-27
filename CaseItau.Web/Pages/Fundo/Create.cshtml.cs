@@ -1,5 +1,6 @@
 using CaseItau.API.Controllers.Fundos.Requests;
-using CaseItau.Web.Service;
+using CaseItau.Web.Services;
+using CaseItau.Web.Services.Errors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -11,6 +12,8 @@ namespace CaseItau.Web.Pages.Fundo
 
         [BindProperty]
         public CreateFundosRequest CreateFundosRequest { get; set; }
+
+        public ApiError ErrorMessage { get; set; }
 
         public async Task<IActionResult> OnPostAsync(CancellationToken cancellationToken)
         {

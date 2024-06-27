@@ -1,4 +1,4 @@
-using CaseItau.Web.Service;
+using CaseItau.Web.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

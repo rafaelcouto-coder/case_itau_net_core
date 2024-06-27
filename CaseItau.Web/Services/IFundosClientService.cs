@@ -2,7 +2,7 @@
 using CaseItau.Application.Fundos.Shared;
 using CaseItau.Domain.Abstractions;
 
-namespace CaseItau.Web.Service;
+namespace CaseItau.Web.Services;
 
 public interface IFundosClientService
 {

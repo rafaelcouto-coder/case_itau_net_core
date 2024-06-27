@@ -65,3 +65,9 @@
     </div>
 </div>
 
+@if (Model.ErrorMessage != null)
+{
+    <div class="alert alert-danger mt-3" role="alert">
+        <strong>Error:</strong> @Model.ErrorMessage.Name - @Model.ErrorMessage.Code
+    </div>
+}

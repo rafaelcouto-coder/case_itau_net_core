@@ -1,0 +1,61 @@
+﻿@page
+@using CaseItau.Domain.Fundos.Enums
+@using CaseItau.Web.Extensions
+@model CaseItau.Web.Pages.Fundo.UpdatePatrimonyModel
+
+@{
+    ViewData["Title"] = "Update Patrimony";
+}
+
+<h1>Movimentar patrimônio</h1>
+
+<form method="post">
+   
+
+    <div>
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.FundosResponse.Codigo)
+            </dt>
+            <dd class="col-sm-10">
+                @Model.FundosResponse.Codigo
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.FundosResponse.Nome)
+            </dt>
+            <dd class="col-sm-10">
+                @Model.FundosResponse.Nome
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.FundosResponse.Patrimonio)
+            </dt>
+            <dd class="col-sm-10">
+                @Model.FundosResponse.Patrimonio.FormatPatrimony()
+            </dd>
+        </dl>
+    <div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="Operation" class="form-label">Tipo de Movimentação</label>
+            <select class="form-select" id="Operation" asp-for="UpdatePatrimonioRequest.Operation">
+                <option value="Add">Adicionar</option>
+                <option value="Subtract">Subtrair</option>
+            </select>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="Value" class="form-label">Valor</label>
+            <input type="number" class="form-control" id="Value" asp-for="UpdatePatrimonioRequest.Value">
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a class="btn btn-outline-primary" asp-page="../Index">Voltar</a>
+</form>
+
+@if (Model.ErrorMessage != null)
+{
+    <div class="alert alert-danger mt-3" role="alert">
+        <strong>Error:</strong> @Model.ErrorMessage.Name - @Model.ErrorMessage.Code
+    </div>
+}

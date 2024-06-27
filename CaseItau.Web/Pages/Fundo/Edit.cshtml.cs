@@ -1,7 +1,8 @@
 using CaseItau.API.Controllers.Fundos.Requests;
 using CaseItau.Application.Fundos.Shared;
 using CaseItau.Domain.Fundos.Enums;
-using CaseItau.Web.Service;
+using CaseItau.Web.Services;
+using CaseItau.Web.Services.Errors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -15,6 +16,8 @@ namespace CaseItau.Web.Pages.Fundo
         public EditFundosRequest EditFundosRequest { get; set; }
 
         public FundosResponse FundosResponse { get; set; }
+
+        public ApiError ErrorMessage { get; set; }
 
         public async Task<IActionResult> OnGet(string id)
         {
@@ -40,11 +43,21 @@ namespace CaseItau.Web.Pages.Fundo
 
             if (updateResult.IsSuccess)
             {
-                return RedirectToPage("../Index");
+                FundosResponse = await _fundosClientService.SearchFundosByCodeAsync(id, default);
+                return Page();
             }
             else
             {
-                ModelState.AddModelError(string.Empty, "Houve um erro ao atualizar o fundo.");
+                FundosResponse = await _fundosClientService.SearchFundosByCodeAsync(id, default);
+
+                ErrorMessage = new ApiError();
+
+                if (updateResult.Error != null)
+                {
+                    ErrorMessage.Name = updateResult.Error.Name;
+                    ErrorMessage.Code = updateResult.Error.Code;
+                }
+
                 return Page();
             }
         }
