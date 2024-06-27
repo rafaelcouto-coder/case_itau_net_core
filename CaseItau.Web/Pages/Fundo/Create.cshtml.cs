@@ -17,15 +17,22 @@ namespace CaseItau.Web.Pages.Fundo
 
         public async Task<IActionResult> OnPostAsync(CancellationToken cancellationToken)
         {
-            var createResult = await _fundosClientService.CreateFundosAsync(CreateFundosRequest, cancellationToken);
+            var result = await _fundosClientService.CreateFundosAsync(CreateFundosRequest, cancellationToken);
 
-            if (createResult.IsSuccess)
+            if (result.IsSuccess)
             {
                 return RedirectToPage("/Index");
             }
             else
             {
-                ModelState.AddModelError(string.Empty, "Houve um erro ao criar o fundo.");
+                ErrorMessage = new ApiError();
+
+                if (result.Error != null)
+                {
+                    ErrorMessage.Name = result.Error.Name;
+                    ErrorMessage.Code = result.Error.Code;
+                }
+
                 return Page();
             }
         }

@@ -39,9 +39,9 @@ namespace CaseItau.Web.Pages.Fundo
 
         public async Task<IActionResult> OnPostAsync(string id, EditFundosRequest editFundosRequest)
         {
-            var updateResult = await _fundosClientService.EditFundosAsync(id, editFundosRequest, default);
+            var result = await _fundosClientService.EditFundosAsync(id, editFundosRequest, default);
 
-            if (updateResult.IsSuccess)
+            if (result.IsSuccess)
             {
                 FundosResponse = await _fundosClientService.SearchFundosByCodeAsync(id, default);
                 return Page();
@@ -52,10 +52,10 @@ namespace CaseItau.Web.Pages.Fundo
 
                 ErrorMessage = new ApiError();
 
-                if (updateResult.Error != null)
+                if (result.Error != null)
                 {
-                    ErrorMessage.Name = updateResult.Error.Name;
-                    ErrorMessage.Code = updateResult.Error.Code;
+                    ErrorMessage.Name = result.Error.Name;
+                    ErrorMessage.Code = result.Error.Code;
                 }
 
                 return Page();

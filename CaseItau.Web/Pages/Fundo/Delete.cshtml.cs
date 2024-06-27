@@ -44,7 +44,14 @@ namespace CaseItau.Web.Pages.Fundo
             }
             else
             {
-                ModelState.AddModelError(string.Empty, "Houve um erro ao atualizar o fundo.");
+                ErrorMessage = new ApiError();
+
+                if (result.Error != null)
+                {
+                    ErrorMessage.Name = result.Error.Name;
+                    ErrorMessage.Code = result.Error.Code;
+                }
+
                 return Page();
             }
         }
