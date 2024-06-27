@@ -21,7 +21,7 @@ namespace CaseItau.Web.Pages.Fundo
 
             if (result.IsSuccess)
             {
-                return RedirectToPage("/Index");
+                return RedirectToPage("../Index");
             }
             else
             {
